@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:solution_challenge/screens/auth/forget_password.dart';
 import 'package:solution_challenge/screens/auth/login_screen.dart';
 import 'package:solution_challenge/screens/splash_screen.dart';
 
@@ -9,6 +10,8 @@ void main() {
     routes: {
       '/': (context) => SplashScreen(),
       '/login': (context) => LoginScreen(),
+      '/forgot': (context) => ForgetPasswordScreen(),
+      
     },
   ));
 }

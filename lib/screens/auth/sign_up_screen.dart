@@ -2,19 +2,18 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/constants/color_constants.dart';
-import 'package:solution_challenge/screens/auth/forget_password.dart';
-import 'package:solution_challenge/screens/auth/sign_up_screen.dart';
 
 import '../../constants/font_constant.dart';
+import 'login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({Key? key}) : super(key: key);
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool _obscureText = true;
 
   String _password = "";
@@ -55,17 +54,16 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: EdgeInsets.fromLTRB(20, 50, 0, 50),
                               child: Center(
                                 child: Text(
-                                "Welcome\nBack",
-                                style: TextStyle(
-                                  fontSize: 35,
-                                  fontStyle: FontStyle.normal,
-                                  fontWeight: FontWeight.bold,
-                                  color: kWhiteColor,
-                                  fontFamily: kUbuntu,
+                                  "Create\nAccount",
+                                  style: TextStyle(
+                                    fontSize: 35,
+                                    fontStyle: FontStyle.normal,
+                                    fontWeight: FontWeight.bold,
+                                    color: kWhiteColor,
+                                    fontFamily: kUbuntu,
+                                  ),
                                 ),
                               ),
-                              ),
-                              
                             ),
                           ],
                         ),
@@ -75,38 +73,65 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            Container(
-              alignment: Alignment.center,
-              margin: EdgeInsets.only(left: 20, right: 20, top: 70),
-              padding: EdgeInsets.only(left: 20, right: 20),
-              height: 54,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: Colors.grey[200],
-                boxShadow: [
-                  BoxShadow(
-                      offset: Offset(0, 10),
-                      blurRadius: 50,
-                      color: Color(0xffEEEEEE)),
-                ],
-              ),
-              child: TextFormField(
-                cursorColor: kBlueColor,
-                decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.email,
-                    color: kBlueColor,
+              Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 70),
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  height: 54,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.grey[200],
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 10),
+                          blurRadius: 50,
+                          color: Color(0xffEEEEEE)
+                      ),
+                    ],
                   ),
-                  hintText: "Enter Email",
-                  suffixIcon: Icon(
-                    Icons.task_alt_rounded,
-                    color: kBlueColor,
+                  child: TextField(
+                    cursorColor: kBlueColor,
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.person,
+                        color: kBlueColor,
+                      ),
+                      hintText: "Full Name",
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
                   ),
-                  enabledBorder: InputBorder.none,
-                  focusedBorder: InputBorder.none,
                 ),
-              ),
-            ),
+
+                Container(
+                  alignment: Alignment.center,
+                  margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                  padding: EdgeInsets.only(left: 20, right: 20),
+                  height: 54,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(50),
+                    color: Colors.grey[200],
+                    boxShadow: [
+                      BoxShadow(
+                          offset: Offset(0, 10),
+                          blurRadius: 50,
+                          color: Color(0xffEEEEEE)
+                      ),
+                    ],
+                  ),
+                  child: TextField(
+                    cursorColor: kBlueColor,
+                    decoration: InputDecoration(
+                      icon: Icon(
+                        Icons.email,
+                        color: kBlueColor,
+                      ),
+                      hintText: "Email",
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
+                  ),
+                ),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.only(left: 20, right: 20, top: 20),
@@ -134,9 +159,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   suffixIcon: TextButton(
                     onPressed: _toggle,
                     child: _obscureText
-                        ? Icon(
-                          Icons.visibility_rounded, 
-                          color: kBlueColor)
+                        ? Icon(Icons.visibility_rounded, color: kBlueColor)
                         : Icon(
                             Icons.visibility_off_rounded,
                             color: kBlueColor,
@@ -151,27 +174,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 obscureText: _obscureText,
               ),
             ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, "/forgot");
-                },
-                child: Text("Forget Password?",
-                style: TextStyle(
-                  color: kDarkBlueColor,
-                ),),
-              ),
-            ),
             GestureDetector(
               onTap: () {
                 // Write Click Listener Code Here.
-                Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignUpScreen(),
-                ));
               },
               child: Container(
                 alignment: Alignment.center,
@@ -189,8 +194,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 child: Text(
-                  "LOGIN",
-                 style: TextStyle(
+                  "SIGN UP",
+                  style: TextStyle(
                     color: Colors.white, 
                     fontFamily: kQuicksand,
                     fontWeight: FontWeight.bold,
@@ -204,20 +209,19 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't Have Any Account?  "),
+                  Text("Already Have An Account?  "),
                   GestureDetector(
                     child: Text(
-                      "Sign Up",
+                      "Login",
                       style: TextStyle(color: kBlueColor),
                     ),
                     onTap: () {
                       //Route to sign up UI
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => SignUpScreen(),
-                        )
-                      );
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen(),
+                          ));
                     },
                   )
                 ],
@@ -229,4 +233,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-

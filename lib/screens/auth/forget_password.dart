@@ -18,6 +18,8 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
 
   String _password = "";
 
+  get kQuicksand => null;
+
   // Toggles the password show status
   void _toggle() {
     setState(() {

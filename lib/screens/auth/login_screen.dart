@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:solution_challenge/constants/color_constants.dart';
+import 'package:solution_challenge/screens/auth/sign_up_screen.dart';
 
 import '../../constants/font_constant.dart';
 

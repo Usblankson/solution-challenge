@@ -8,6 +8,7 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => SplashScreen(),
+      '/login': (context) => LoginScreen(),
     },
   ));
 }

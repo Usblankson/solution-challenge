@@ -1,2 +1,2 @@
 
-const kUbuntu = 'ubuntu';
+const kUbuntu = 'Ubuntu';
